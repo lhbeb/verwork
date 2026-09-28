@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Free web tools, simple utilities, community software, Reina Torress',
     keywords: 'Reina Torress, web tools, productivity utilities, automation, developer utilities, community projects',
     alternates: { canonical: '/' },
-    icons: { icon: '/favicon.png' },
+    icons: { icon: '/favicon.png', shortcut: '/favicon.png', apple: '/favicon.png' },
     openGraph: {
         title: 'Reina Torress | Free tools for the community.',
         description: 'Free web tools and simple utilities made for the community by Reina Torress.',
