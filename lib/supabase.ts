@@ -5,11 +5,6 @@ export const supabase = createClient(
     'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14cG9ya2RzdXFhbXpycWRta2JiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODk5NTAxMjAsImV4cCI6MjEwNTUyNjEyMH0.dEk2Rx-wV7dyoTVi0CnRQwDRtYxZL5Y2w7_poeXlaGA'
 )
 
-export const supabaseAdmin = createClient(
-    'https://mxporkdsuqamzrqdmkbb.supabase.co',
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im14cG9ya2RzdXFhbXpycWRta2JiIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc4OTk1MDEyMCwiZXhwIjoyMTA1NTI2MTIwfQ.lFyptb5WNELuulN1qz5xj52FrUz1mnZd3noj9qTy8RM'
-)
-
 export const HIDDEN_PUBLIC_PRODUCT_IDS = new Set([
     '73f2ba00-a69f-4d85-840c-6e5cffa5ec16',
     'b66678e7-7ce4-4b66-b234-c7cbb0ebc97b',

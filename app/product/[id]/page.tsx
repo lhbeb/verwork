@@ -1,12 +1,10 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { ArrowLeft, ArrowUpRight, Check } from 'lucide-react'
+import { ArrowLeft, Check, Download } from 'lucide-react'
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { brushProducts } from '@/lib/brushes'
-import DemoCardCheckout from '@/components/DemoCardCheckout'
-
-const shopUrl = 'https://buymeacoffee.com/paulamadeus/extras'
+import ManualPaywall from '@/components/ManualPaywall'
 
 type PageProps = { params: Promise<{ id: string }> }
 
@@ -33,12 +31,11 @@ export default async function ProductPage({ params }: PageProps) {
     return <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <Link href="/#brushes" className="mb-8 inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted-text)] transition-colors hover:text-[var(--cobalt)]"><ArrowLeft size={16} /> Back to brushes</Link>
         <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(0,.95fr)] lg:gap-16">
-            <div className="relative aspect-square overflow-hidden rounded-md border border-[var(--line)] bg-[var(--paper-bright)]">
+            <div className="relative aspect-square overflow-hidden rounded-md border border-[var(--line)] bg-[var(--paper)]">
                 <Image src={product.image} alt={product.imageAlt} fill priority sizes="(min-width: 1024px) 52vw, 100vw" className={product.imageCropRight ? 'object-cover object-left origin-left scale-[1.35]' : 'object-contain'} />
             </div>
             <div className="flex flex-col items-start py-1 lg:py-6">
-                <p className="text-xs font-bold uppercase text-[var(--coral)]">Brush pack by Paul Amadeus</p>
-                <h1 className="mt-3 font-display text-4xl font-semibold leading-tight text-[var(--ink)] sm:text-5xl">{product.name}</h1>
+                <h1 className="font-display text-3xl font-semibold leading-snug text-[var(--ink)] sm:text-4xl">{product.name}</h1>
                 <p className="mt-5 text-lg leading-relaxed text-[var(--muted-text)]">{product.description}</p>
                 <p className="mt-6 rounded-sm bg-[var(--paper-muted)] px-3 py-2 text-sm font-semibold text-[var(--ink-soft)]">{product.priceLabel}</p>
                 <div className="mt-8 w-full border-t border-[var(--line)] pt-6">
@@ -55,13 +52,14 @@ export default async function ProductPage({ params }: PageProps) {
                 {product.downloads ? <div className="mt-8 w-full border-t border-[var(--line)] pt-6">
                     <h2 className="font-display text-xl font-semibold text-[var(--ink)]">Free downloads</h2>
                     <div className="mt-4 flex flex-col items-start gap-2">
-                        {product.downloads.map(download => <a key={download.href} href={download.href} download className="inline-flex min-h-11 items-center gap-2 rounded-md bg-[var(--ink)] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--cobalt)]"><ArrowUpRight size={15} /> {download.label}</a>)}
+                        {product.downloads.map(download => <a key={download.href} href={download.href} className="inline-flex min-h-11 items-center gap-2 rounded-md bg-[var(--ink)] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--cobalt)]"><Download size={15} /> {download.label}</a>)}
                     </div>
                     <p className="mt-3 text-xs text-[var(--muted-text)]">Free to download. No checkout required.</p>
-                </div> : <>
-                    <a href={shopUrl} target="_blank" rel="noopener noreferrer" className="mt-8 inline-flex min-h-12 items-center justify-center gap-2 rounded-md bg-[var(--ink)] px-6 py-3 font-bold text-white transition-colors hover:bg-[var(--cobalt)]">{product.priceAmount ? `Buy for $${product.priceAmount.toFixed(2)}` : 'Get this brush set'} <ArrowUpRight size={16} /></a>
-                    {product.priceAmount && <DemoCardCheckout productName={product.name} amount={product.priceAmount} />}
-                    <p className="mt-3 text-xs text-[var(--muted-text)]">Purchases and downloads are handled securely in Paul’s shop.</p>
+                </div> : product.archiveUrl ? <>
+                    <ManualPaywall productName={product.name} amount={product.priceAmount} downloadUrl={product.archiveUrl} />
+                    <p className="mt-3 text-xs text-[var(--muted-text)]">Manual PayPal payment. This site does not verify payments automatically.</p>
+                </> : <>
+                    <a href="mailto:paul@verwork.shop" className="mt-8 inline-flex min-h-12 items-center justify-center rounded-md bg-[var(--ink)] px-6 py-3 font-bold text-white transition-colors hover:bg-[var(--cobalt)]">Contact Paul for this brush set</a>
                 </>}
             </div>
         </div>

@@ -8,7 +8,7 @@ const shopUrl = 'https://buymeacoffee.com/paulamadeus'
 export default function ProductGrid() {
     return <section id="brushes" className="mx-auto max-w-7xl scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
         <div className="mb-9 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <div><p className="mb-3 text-xs font-bold uppercase text-[var(--coral)]">The brush library</p><h2 className="section-title max-w-2xl">Brushes for making your mark.</h2><p className="mt-3 max-w-2xl leading-relaxed text-[var(--muted-text)]">Explore brush packs by Paul Amadeus, made for expressive digital painting and illustration.</p></div>
+            <div><h2 className="section-title max-w-2xl">Brush sets</h2><p className="mt-3 max-w-2xl leading-relaxed text-[var(--muted-text)]">Explore brush packs by Paul Amadeus, made for expressive digital painting and illustration.</p></div>
             <a href={shopUrl} target="_blank" rel="noopener noreferrer" className="inline-flex w-fit shrink-0 items-center gap-2 border-b-2 border-[var(--coral)] pb-1 font-bold text-[var(--ink)] hover:text-[var(--cobalt)]">Browse all brushes <ArrowUpRight size={16} /></a>
         </div>
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
@@ -35,8 +35,7 @@ export default function ProductGrid() {
                 <Image src="/Verwork%20Paul%20Amadeus.jpg" alt="Paul Amadeus drawing digitally on a tablet in his studio" fill sizes="(min-width: 640px) 35vw, 100vw" className="object-cover object-center" />
             </div>
             <div className="max-w-xl">
-                <p className="mb-3 text-xs font-bold uppercase text-[var(--coral)]">In the studio</p>
-                <h3 className="font-display text-3xl font-semibold leading-tight text-[var(--ink)] sm:text-4xl">Every brush starts with a mark.</h3>
+                <h3 className="font-display text-2xl font-semibold leading-snug text-[var(--ink)] sm:text-3xl">Meet the artist behind Verwork.</h3>
                 <p className="mt-4 leading-relaxed text-[var(--muted-text)]">I’m Paul Amadeus. I draw, test, and refine each set on a tablet, then share the tools that make my own process more expressive.</p>
                 <Link href="/about" className="mt-6 inline-flex items-center gap-2 text-sm font-bold text-[var(--cobalt)] transition-colors hover:text-[var(--coral)]">Meet Paul <ArrowUpRight size={15} /></Link>
             </div>

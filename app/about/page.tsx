@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { ArrowUpRight, Layers3, Pencil, Sparkles } from 'lucide-react'
 
 export const metadata = {
@@ -14,11 +15,11 @@ const principles = [
 
 export default function AboutPage() {
     return <main className="min-h-screen">
-        <section className="border-b border-[var(--line)] bg-[var(--ink)] text-white"><div className="mx-auto max-w-5xl px-6 py-16 sm:py-24"><p className="mb-5 text-xs font-bold uppercase text-[var(--ochre)]">The artist behind Verwork</p><h1 className="max-w-3xl font-display text-4xl font-semibold leading-tight sm:text-6xl">Tools for artists who like their marks a little less ordinary.</h1><p className="mt-7 max-w-2xl text-lg leading-relaxed text-white/70">I’m Paul Amadeus, a digital artist making and selling Procreate brushes for illustrators, painters, and curious makers.</p></div></section>
+        <section className="border-b border-[var(--line)] bg-[var(--ink)] text-white"><div className="mx-auto grid max-w-7xl items-center gap-10 px-6 py-12 sm:py-16 md:grid-cols-[minmax(0,1fr)_minmax(220px,320px)] lg:gap-16 lg:px-8 lg:py-20"><div><h1 className="max-w-3xl font-display text-3xl font-semibold leading-snug sm:text-4xl">Hi, I’m Paul Amadeus.</h1><p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">I’m a digital artist making and selling Procreate brushes for illustrators, painters, and curious makers.</p></div><div className="relative mx-auto aspect-[3/4] w-full max-w-[320px] overflow-hidden border border-white/15"><Image src="/paul1.png" alt="Paul Amadeus with his digital drawing tablet and sketches in his studio" fill priority sizes="(min-width: 768px) 320px, 80vw" className="object-cover object-center" /></div></div></section>
         <div className="mx-auto max-w-5xl space-y-16 px-6 py-14 sm:py-20">
             <section className="max-w-3xl text-lg leading-relaxed text-[var(--muted-text)]"><p>Verwork is where I share the brushes I create for digital art. I want each set to give you another way to explore texture, line, and movement in Procreate.</p><p className="mt-5">Browse the current brush sets through my shop. Product pages there include previews, compatibility notes, and the details for each download.</p></section>
             <section className="grid gap-5 md:grid-cols-3">{principles.map(({ icon: Icon, title, description }) => <article key={title} className="border-t-2 border-[var(--line)] py-5"><Icon size={20} className="mb-5 text-[var(--cobalt)]" /><h2 className="font-display text-xl font-semibold">{title}</h2><p className="mt-2 text-sm leading-relaxed text-[var(--muted-text)]">{description}</p></article>)}</section>
-            <section className="flex flex-col items-start justify-between gap-5 border-t border-[var(--line)] pt-8 sm:flex-row sm:items-center"><div><p className="text-xs font-bold uppercase text-[var(--coral)]">Make something yours</p><h2 className="mt-2 font-display text-2xl font-semibold">Find your next favorite brush.</h2></div><Link href="/collections" className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-5 py-3 font-bold text-white hover:bg-[var(--cobalt)]">Visit the brush shop <ArrowUpRight size={15} /></Link></section>
+            <section className="flex flex-col items-start justify-between gap-5 border-t border-[var(--line)] pt-8 sm:flex-row sm:items-center"><h2 className="font-display text-2xl font-semibold">Explore the brush sets.</h2><Link href="/collections" className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-5 py-3 font-bold text-white hover:bg-[var(--cobalt)]">Visit the brush shop <ArrowUpRight size={15} /></Link></section>
         </div>
     </main>
 }

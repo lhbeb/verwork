@@ -8,6 +8,7 @@ export type BrushProduct = {
     brushCount?: number
     priceLabel: string
     priceAmount?: number
+    archiveUrl?: string
     imageCropRight?: boolean
     downloads?: { label: string; href: string }[]
     details: string[]
@@ -24,11 +25,7 @@ export const brushProducts: BrushProduct[] = [
         brushCount: 53,
         priceLabel: 'Free download',
         downloads: [
-            { label: 'Cloud Edges', href: '/BRUSHES/Procreate_files/Cloud_Edges.brushset' },
-            { label: 'Cloud Painting Brushes', href: '/BRUSHES/Procreate_files/Cloud_Painting_Brushes.brushset' },
-            { label: 'Fluffy Clouds', href: '/BRUSHES/Procreate_files/Fluffy_Clouds.brushset' },
-            { label: 'Watercolor Clouds', href: '/BRUSHES/Procreate_files/Watercolor_Clouds.brushset' },
-            { label: 'Wispy Clouds', href: '/BRUSHES/Procreate_files/Wispy_Clouds.brushset' },
+            { label: 'Download Cloud Brush Pack (ZIP)', href: '/downloads/cloud-brush-pack.zip' },
         ],
         details: ['Five Procreate brushsets for realistic and stylized skies', 'Includes cloud edges, fluffy, watercolor, and wispy effects', 'Royalty-free use'],
     },
@@ -42,8 +39,7 @@ export const brushProducts: BrushProduct[] = [
         brushCount: 10,
         priceLabel: 'Free download',
         downloads: [
-            { label: 'Northern Lights for Procreate', href: '/BRUSHES/BRUSH/Northern_Lights_Procreate.brushset' },
-            { label: 'Northern Lights for Clip Studio Paint', href: '/BRUSHES/northern-lights-clip-studio.zip' },
+            { label: 'Download Northern Lights Brushes (ZIP)', href: '/downloads/northern-lights-brushes.zip' },
         ],
         details: ['Glowing aurora and colorful night-sky effects', 'Procreate brushset plus Clip Studio Paint brush files', 'For personal and professional work'],
     },
@@ -56,7 +52,7 @@ export const brushProducts: BrushProduct[] = [
         formats: ['Procreate'],
         brushCount: 28,
         priceLabel: 'Free download',
-        downloads: [{ label: 'Rake Brush Pack for Procreate', href: '/BRUSHES/3/Rake_Brushpack.brushset' }],
+        downloads: [{ label: 'Download Rake Brush Pack (ZIP)', href: '/downloads/rake-brush-pack.zip' }],
         details: ['Textured, painterly rake strokes for expressive mark-making', 'Procreate brushset', 'Royalty-free use in commercial work'],
     },
     {
@@ -69,6 +65,7 @@ export const brushProducts: BrushProduct[] = [
         brushCount: 144,
         priceLabel: '$39.00',
         priceAmount: 39,
+        archiveUrl: '/downloads/grass-fields-brush-pack.zip',
         imageCropRight: true,
         details: ['Grass, flowers, plants, and field textures', 'Procreate, Photoshop, and Clip Studio Paint formats', 'Includes demo videos and royalty-free use'],
     },
@@ -79,7 +76,8 @@ export const brushProducts: BrushProduct[] = [
         image: '/BRUSHES/5/1.png',
         imageAlt: 'Soft Anime Brush Set cover with a digital character portrait and sample strokes',
         formats: ['Procreate'],
-        priceLabel: 'Premium set',
+        priceLabel: 'Premium set · ask for price',
+        archiveUrl: '/downloads/soft-anime-brush-set.zip',
         details: ['Soft painting and sketching brushes', 'Anime-inspired shading, blending, and coloring', 'Designed for Procreate'],
     },
 ]
