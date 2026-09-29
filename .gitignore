@@ -12,6 +12,7 @@
 
 # production
 /build
+/private-downloads/
 
 # misc
 .DS_Store

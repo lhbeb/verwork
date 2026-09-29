@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { ArrowUpRight, Menu, X } from 'lucide-react'
 
@@ -16,10 +17,9 @@ export default function Navbar() {
     ]
 
     return <nav className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--paper)]/95 backdrop-blur-md">
-        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto flex h-20 max-w-7xl items-center justify-between gap-5 px-4 sm:h-[88px] sm:px-6 lg:px-8">
             <Link href="/" aria-label="Verwork home" className="flex flex-col leading-tight">
-                <span className="font-display text-xl font-bold text-[var(--ink)]">verwork<span className="text-[var(--coral)]">.</span></span>
-                <span className="text-[10px] font-semibold uppercase text-[var(--muted-text)]">Paul Amadeus · Procreate brushes</span>
+                <Image src="/verwork-logo.png" alt="Verwork" width={241} height={104} priority className="h-14 w-auto object-contain sm:h-16" />
             </Link>
             <div className="hidden items-center gap-7 md:flex">
                 {links.map(link => <Link key={link.href} href={link.href} className="text-sm font-semibold text-[var(--muted-text)] transition-colors hover:text-[var(--ink)]">{link.label}</Link>)}
