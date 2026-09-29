@@ -2,7 +2,6 @@
 
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Image from 'next/image'
 import { Loader2, KeyRound, Mail, AlertCircle } from 'lucide-react'
 
 export default function LoginPage() {
@@ -36,7 +35,7 @@ export default function LoginPage() {
 
                 {/* Logo & Header */}
                 <div className="flex flex-col items-center justify-center mb-10">
-                    <Image src="/logo.svg" alt="Ballard Kelly Scott" width={168} height={50} className="h-12 w-auto mb-6" />
+                    <span className="mb-6 font-display text-3xl font-bold text-gray-900">verwork<span className="text-[var(--coral)]">.</span></span>
                     <h1 className="text-2xl font-bold text-gray-900 mb-2">Admin Portal</h1>
                     <p className="text-gray-400 text-sm text-center">Sign in to manage your digital products</p>
                 </div>

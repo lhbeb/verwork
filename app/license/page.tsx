@@ -1,57 +1,19 @@
 import Link from 'next/link'
-import { ArrowLeftCircle, CheckCircle, XCircle } from 'lucide-react'
+import { ArrowLeft, Check, X } from 'lucide-react'
+
+export const metadata = { title: 'Procreate Brush License | Verwork' }
 
 export default function LicensePage() {
-    return (
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 pb-32">
-            <Link href="/" className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-[#2563eb] transition-colors mb-8">
-                <ArrowLeftCircle size={16} /> Back to Home
-            </Link>
-
-            <h1 className="text-4xl font-bold text-gray-900 mb-4">Audio License Agreement</h1>
-            <p className="text-gray-400 mb-12">Clear, simple rules for using the audio assets downloaded from Ballard Kelly Scott.</p>
-
-            <div className="space-y-8 text-gray-600 leading-relaxed">
-                <section>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">Overview</h2>
-                    <p>All audio assets (music, stems, sound effects) provided for free download on Ballard Kelly Scott are licensed to you under a broad, creator-friendly royalty-free license. This means you can use them in almost any creative project without paying royalties.</p>
-                </section>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 py-4">
-                    <div className="bg-[#2563eb]/5 border border-[#2563eb]/20 rounded-2xl p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                            <CheckCircle className="text-[#2563eb]" /> You CAN:
-                        </h3>
-                        <ul className="space-y-3">
-                            <li className="flex gap-2"><span className="text-[#2563eb] flex-shrink-0">•</span> Use the tool outputs and downloadable resources in personal, educational, and commercial projects, subject to any product-specific terms.</li>
-                            <li className="flex gap-2"><span className="text-[#2563eb] flex-shrink-0">•</span> Modify, cut, splice, and process the audio to fit your project.</li>
-                            <li className="flex gap-2"><span className="text-[#2563eb] flex-shrink-0">•</span> Use the audio without required attribution (though tagging/crediting Ballard Kelly Scott is highly appreciated!).</li>
-                            <li className="flex gap-2"><span className="text-[#2563eb] flex-shrink-0">•</span> Use the resources in your own workflow without reselling the raw files or presenting them as a Reina Torress product.</li>
-                        </ul>
-                    </div>
-
-                    <div className="bg-red-500/5 border border-red-500/20 rounded-2xl p-6">
-                        <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
-                            <XCircle className="text-red-400" /> You CANNOT:
-                        </h3>
-                        <ul className="space-y-3">
-                            <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">•</span> Resell, redistribute, sub-license, or share the raw, standalone audio files.</li>
-                            <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">•</span> Claim ownership or authorship of the original audio composition.</li>
-                            <li className="flex gap-2"><span className="text-red-400 flex-shrink-0">•</span> Upload the unaltered tracks to streaming platforms (Spotify, Apple Music) as your own release or register them in Content ID systems that would falsely flag other creators.</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <section>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">Content ID & Copyright Claims</h2>
-                    <p>The tracks on this site are NOT registered with YouTube Content ID or other automated fingerprinting services. You will not receive copyright strikes for using these tracks as intended in your videos. If you ever receive a false claim from a third party regarding audio downloaded here, please contact us immediately to help resolve it.</p>
-                </section>
-
-                <section>
-                    <h2 className="text-2xl font-semibold text-gray-900 mb-4">Professional Services</h2>
-                    <p>If you hire Ballard Kelly Scott for custom audio production, mixing, or mastering, the licensing terms for those specific deliverables will be outlined in a separate written agreement tailored to your project.</p>
-                </section>
+    return <main className="mx-auto max-w-4xl px-5 py-14 sm:px-8 sm:py-20">
+        <Link href="/" className="mb-8 inline-flex items-center gap-2 text-sm text-[var(--muted-text)] hover:text-[var(--cobalt)]"><ArrowLeft size={15} /> Home</Link>
+        <h1 className="font-display text-4xl font-semibold">Brush License</h1><p className="mb-10 mt-3 text-[var(--muted-text)]">Check the license included with each brush set for its specific terms.</p>
+        <div className="space-y-8 leading-relaxed text-[var(--muted-text)]">
+            <section><h2 className="mb-3 font-display text-xl font-semibold text-[var(--ink)]">Product-specific terms apply</h2><p>Verwork brush sets are digital tools for use in Procreate. The allowed uses, attribution requirements, and other conditions may differ by product. The terms shown on the product listing and included with your download take precedence over this general page.</p></section>
+            <div className="grid gap-5 sm:grid-cols-2">
+                <section className="border-t-2 border-[var(--cobalt)] pt-5"><h2 className="mb-4 flex items-center gap-2 font-display text-xl font-semibold text-[var(--ink)]"><Check size={19} className="text-[var(--cobalt)]" /> Before using</h2><ul className="space-y-3"><li>Review the license supplied with your specific brush set.</li><li>Use the brushes within the stated personal or commercial permissions.</li><li>Keep the original files for your own use as described by the listing.</li></ul></section>
+                <section className="border-t-2 border-[var(--coral)] pt-5"><h2 className="mb-4 flex items-center gap-2 font-display text-xl font-semibold text-[var(--ink)]"><X size={19} className="text-[var(--coral)]" /> Unless your license says otherwise</h2><ul className="space-y-3"><li>Do not resell or redistribute the brush files themselves.</li><li>Do not claim authorship of the original brush assets.</li><li>Do not include the files in another brush pack or downloadable asset bundle.</li></ul></section>
             </div>
+            <p>For questions about a particular brush set, contact Paul through the <Link href="/contact" className="font-semibold text-[var(--cobalt)] hover:underline">Verwork contact page</Link>.</p>
         </div>
-    )
+    </main>
 }

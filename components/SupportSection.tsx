@@ -1,11 +1,12 @@
-import { ExternalLink, FileText, GitBranch, Heart, Wrench } from 'lucide-react'
+import { ArrowUpRight, Heart, Paintbrush2 } from 'lucide-react'
+
+const creatorUrl = 'https://buymeacoffee.com/paulamadeus'
 
 export default function SupportSection() {
-    const items = [
-        { icon: Wrench, label: 'Small utilities' },
-        { icon: FileText, label: 'Productivity helpers' },
-        { icon: GitBranch, label: 'Open experiments' },
-        { icon: Heart, label: 'Community requests' },
-    ]
-    return <section id="support" className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-20 scroll-mt-24"><div className="bg-[var(--ink)] text-white rounded-[2rem] overflow-hidden p-8 sm:p-12 lg:p-16"><div className="max-w-3xl"><p className="mono text-xs uppercase text-[var(--signal-lime)] mb-4">Free tools, shared openly</p><h2 className="font-display text-3xl sm:text-5xl font-bold leading-tight mb-6">Free tools for the community</h2><div className="space-y-4 text-white/65 leading-relaxed max-w-2xl mb-8"><p>Most of my tools are free for anyone to use. If one saved you time or made your work easier, you can support the next tool and help keep the current ones available.</p><p>Buy Me a Coffee support helps cover hosting, APIs, domains, and maintenance while the tools remain free for the community.</p></div><div className="flex flex-wrap gap-2 mb-9">{items.map(({ icon: Icon, label }) => <span key={label} className="inline-flex items-center gap-2 rounded-full border border-white/15 bg-white/5 px-3 py-2 text-sm text-white/70"><Icon size={14} className="text-[var(--signal-lime)]" />{label}</span>)}</div><div className="flex flex-col sm:flex-row gap-3"><a href="https://buymeacoffee.com/reinatorress" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full bg-[var(--signal-lime)] text-[var(--ink)] font-bold px-6 py-3 hover:brightness-105 transition-all">Buy Me a Coffee <img src="/BMC1.png" alt="" className="h-5 w-5 object-contain" /></a><a href="https://github.com/ReinaToress" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-full border border-white/20 text-white font-semibold px-6 py-3 hover:bg-white/10 transition-colors"><ExternalLink size={16} /> Open projects</a></div></div></div></section>
+    return <section id="support" className="border-y border-[var(--line)] bg-[var(--paper-muted)]">
+        <div className="mx-auto flex max-w-7xl flex-col gap-7 px-4 py-12 sm:px-6 md:flex-row md:items-center md:justify-between lg:px-8">
+            <div className="max-w-2xl"><p className="mb-3 inline-flex items-center gap-2 text-xs font-bold uppercase text-[var(--cobalt)]"><Heart size={14} /> Independent art, made with care</p><h2 className="font-display text-3xl font-semibold text-[var(--ink)]">Help me make the next set.</h2><p className="mt-3 leading-relaxed text-[var(--muted-text)]">Every brush set and kind bit of support helps me spend more time making useful, expressive tools for digital artists.</p></div>
+            <div className="flex flex-col gap-3 sm:flex-row"><a href={creatorUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md bg-[var(--ink)] px-5 py-3 font-bold text-white transition-colors hover:bg-[var(--cobalt)]">Support Paul <ArrowUpRight size={16} /></a><a href={`${creatorUrl}/extras`} target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center gap-2 rounded-md border border-[var(--line)] bg-white px-5 py-3 font-bold text-[var(--ink)] transition-colors hover:border-[var(--cobalt)]"><Paintbrush2 size={16} /> Visit the brush shop <ArrowUpRight size={15} /></a></div>
+        </div>
+    </section>
 }

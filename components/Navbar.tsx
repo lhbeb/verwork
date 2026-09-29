@@ -1,20 +1,32 @@
 'use client'
 
 import Link from 'next/link'
-import { Suspense, useState, useEffect } from 'react'
-import { useRouter, useSearchParams } from 'next/navigation'
-import { Github, Menu, X, Search, ArrowUpRight } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowUpRight, Menu, X } from 'lucide-react'
 
-const GITHUB_URL = 'https://github.com/ReinaToress'
+const shopUrl = 'https://buymeacoffee.com/paulamadeus'
 
-function NavbarContent() {
+export default function Navbar() {
     const [menuOpen, setMenuOpen] = useState(false)
-    const [query, setQuery] = useState('')
-    const router = useRouter()
-    const searchParams = useSearchParams()
-    useEffect(() => { setQuery(searchParams.get('q') ?? '') }, [searchParams])
-    function handleSearch(value: string) { setQuery(value); const params = new URLSearchParams(searchParams.toString()); if (value) params.set('q', value); else params.delete('q'); router.replace(`/?${params}`, { scroll: false }) }
-    const links = [{ href: '/#tools', label: 'Tools' }, { href: '/#projects', label: 'Projects' }, { href: '/about', label: 'About' }, { href: '/contact', label: 'Contact' }, { href: '/#consultation', label: 'Consultation' }]
-    return <nav className="sticky top-0 z-50 bg-[var(--paper)]/90 backdrop-blur-md border-b border-[var(--line)]"><div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8"><div className="flex items-center justify-between h-[72px] gap-4"><Link href="/" aria-label="Reina Torress home" className="flex items-center gap-3 flex-shrink-0 group"><img src="/logoreinatoress.svg" alt="Reina Torress" className="h-10 w-auto max-w-[190px] object-contain" /></Link><div className="hidden lg:flex flex-1 max-w-xs mx-auto"><div className="relative w-full"><Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--muted-text)]" /><input type="search" placeholder="Search tools" value={query} onChange={(e) => handleSearch(e.target.value)} className="w-full bg-[var(--paper-bright)] border border-[var(--line)] focus:border-[var(--ink)] rounded-xl pl-10 pr-4 py-2.5 text-sm text-[var(--ink)] placeholder:text-[var(--muted-text)] outline-none" /></div></div><div className="hidden md:flex items-center gap-5"><div className="flex items-center gap-5">{links.map(link => <Link key={link.href} href={link.href} className="text-sm font-semibold text-[var(--muted-text)] hover:text-[var(--ink)] transition-colors">{link.label}</Link>)}</div><a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" aria-label="Reina Torress on GitHub" className="text-[var(--muted-text)] hover:text-[var(--ink)] transition-colors"><Github size={19} /></a><a href="https://buymeacoffee.com/reinatorress" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee profile" className="inline-flex items-center gap-2 rounded-xl bg-[#ffdd00] text-[var(--ink)] px-4 py-2.5 text-xs font-bold hover:bg-[#f4d000] transition-all"><img src="/BMC1.png" alt="" className="h-4 w-4 object-contain" /> Buy Me a Coffee <ArrowUpRight size={14} /></a></div><button className="md:hidden p-2 text-[var(--ink)]" onClick={() => setMenuOpen(!menuOpen)} aria-label="Toggle menu">{menuOpen ? <X size={21} /> : <Menu size={21} />}</button></div></div>{menuOpen && <div className="md:hidden border-t border-[var(--line)] bg-[var(--paper-bright)] px-4 py-4"><div className="relative mb-4"><Search size={15} className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[var(--muted-text)]" /><input type="search" placeholder="Search tools" value={query} onChange={(e) => handleSearch(e.target.value)} className="w-full bg-[var(--paper)] border border-[var(--line)] rounded-xl pl-10 pr-4 py-2.5 text-sm outline-none" /></div><div className="flex flex-col gap-3">{links.map(link => <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-[var(--muted-text)]">{link.label}</Link>)}<a href={GITHUB_URL} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm font-bold text-[var(--ink)]"><Github size={18} />GitHub</a><a href="https://buymeacoffee.com/reinatorress" target="_blank" rel="noopener noreferrer" aria-label="Buy Me a Coffee profile" className="inline-flex items-center gap-2 text-sm font-bold text-[var(--ink)]"><img src="/BMC1.png" alt="" className="h-5 w-5 object-contain" /> Buy Me a Coffee <ArrowUpRight size={16} /></a></div></div>}</nav>
+    const links = [
+        { href: '/collections', label: 'Brushes' },
+        { href: '/about', label: 'About Paul' },
+        { href: '/license', label: 'Brush license' },
+        { href: '/contact', label: 'Contact' },
+    ]
+
+    return <nav className="sticky top-0 z-50 border-b border-[var(--line)] bg-[var(--paper)]/95 backdrop-blur-md">
+        <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between gap-5 px-4 sm:px-6 lg:px-8">
+            <Link href="/" aria-label="Verwork home" className="flex flex-col leading-tight">
+                <span className="font-display text-xl font-bold text-[var(--ink)]">verwork<span className="text-[var(--coral)]">.</span></span>
+                <span className="text-[10px] font-semibold uppercase text-[var(--muted-text)]">Paul Amadeus · Procreate brushes</span>
+            </Link>
+            <div className="hidden items-center gap-7 md:flex">
+                {links.map(link => <Link key={link.href} href={link.href} className="text-sm font-semibold text-[var(--muted-text)] transition-colors hover:text-[var(--ink)]">{link.label}</Link>)}
+                <a href={shopUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-md bg-[var(--ink)] px-4 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[var(--cobalt)]">Shop brush sets <ArrowUpRight size={15} /></a>
+            </div>
+            <button className="p-2 text-[var(--ink)] md:hidden" onClick={() => setMenuOpen(!menuOpen)} aria-label={menuOpen ? 'Close menu' : 'Open menu'} aria-expanded={menuOpen}>{menuOpen ? <X size={21} /> : <Menu size={21} />}</button>
+        </div>
+        {menuOpen && <div className="border-t border-[var(--line)] bg-[var(--paper-bright)] px-4 py-4 md:hidden"><div className="flex flex-col gap-4">{links.map(link => <Link key={link.href} href={link.href} onClick={() => setMenuOpen(false)} className="text-sm font-semibold text-[var(--ink)]">{link.label}</Link>)}<a href={shopUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 font-bold text-[var(--cobalt)]">Shop brush sets <ArrowUpRight size={15} /></a></div></div>}
+    </nav>
 }
-export default function Navbar() { return <Suspense fallback={<div className="h-[72px] bg-[var(--paper)] border-b border-[var(--line)]" />}><NavbarContent /></Suspense> }
